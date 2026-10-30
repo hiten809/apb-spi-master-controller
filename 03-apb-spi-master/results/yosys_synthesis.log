@@ -1,0 +1,647 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Running command `read_verilog -sv rtl/apb_spi_master.sv; hierarchy -top apb_spi_master; proc; opt; check; stat' --
+
+1. Executing Verilog-2005 frontend: rtl/apb_spi_master.sv
+Parsing SystemVerilog input from `rtl/apb_spi_master.sv' to AST representation.
+Generating RTLIL representation for module `\apb_spi_master'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \apb_spi_master
+
+2.2. Analyzing design hierarchy..
+Top module:  \apb_spi_master
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 8 switch rules as full_case in process $proc$rtl/apb_spi_master.sv:174$125 in module apb_spi_master.
+Marked 11 switch rules as full_case in process $proc$rtl/apb_spi_master.sv:129$45 in module apb_spi_master.
+Marked 1 switch rules as full_case in process $proc$rtl/apb_spi_master.sv:120$40 in module apb_spi_master.
+Marked 6 switch rules as full_case in process $proc$rtl/apb_spi_master.sv:0$34 in module apb_spi_master.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 28 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~29 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+     1/19: $3$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:206$17[7:0]$139
+     2/19: $3$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:204$16[7:0]$138
+     3/19: $2$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:206$17[7:0]$133
+     4/19: $2$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:204$16[7:0]$132
+     5/19: $0\rx_commit[0:0]
+     6/19: $0\tx_start[0:0]
+     7/19: $0\spi_mode[1:0]
+     8/19: $0\divider_count[7:0]
+     9/19: $1$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:206$17[7:0]$130
+    10/19: $1$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:204$16[7:0]$129
+    11/19: $0\rx_commit_data[7:0]
+    12/19: $0\leading_edge[0:0]
+    13/19: $0\sample_count[3:0]
+    14/19: $0\rx_shift[7:0]
+    15/19: $0\tx_shift[6:0]
+    16/19: $0\busy[0:0]
+    17/19: $0\CS_n[0:0]
+    18/19: $0\MOSI[0:0]
+    19/19: $0\SCLK[0:0]
+Creating decoders for process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+     1/47: $3\ptr_next$func$rtl/apb_spi_master.sv:157$5.$result[1:0]$117
+     2/47: $2\ptr_next$func$rtl/apb_spi_master.sv:157$5.$result[1:0]$114
+     3/47: $2\ptr_next$func$rtl/apb_spi_master.sv:157$5.ptr[1:0]$115
+     4/47: $3\ptr_next$func$rtl/apb_spi_master.sv:153$4.$result[1:0]$112
+     5/47: $2\ptr_next$func$rtl/apb_spi_master.sv:153$4.$result[1:0]$106
+     6/47: $2\ptr_next$func$rtl/apb_spi_master.sv:153$4.ptr[1:0]$107
+     7/47: $2$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_EN[7:0]$110
+     8/47: $2$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_DATA[7:0]$109
+     9/47: $2$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_ADDR[1:0]$108
+    10/47: $3\ptr_next$func$rtl/apb_spi_master.sv:149$3.$result[1:0]$102
+    11/47: $2\ptr_next$func$rtl/apb_spi_master.sv:149$3.$result[1:0]$99
+    12/47: $2\ptr_next$func$rtl/apb_spi_master.sv:149$3.ptr[1:0]$100
+    13/47: $3\ptr_next$func$rtl/apb_spi_master.sv:145$2.$result[1:0]$97
+    14/47: $2\ptr_next$func$rtl/apb_spi_master.sv:145$2.$result[1:0]$91
+    15/47: $2\ptr_next$func$rtl/apb_spi_master.sv:145$2.ptr[1:0]$92
+    16/47: $2$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_EN[7:0]$95
+    17/47: $2$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_DATA[7:0]$94
+    18/47: $2$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_ADDR[1:0]$93
+    19/47: $1\i[31:0]
+    20/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$13_EN[7:0]$84
+    21/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$12_EN[7:0]$83
+    22/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$11_EN[7:0]$82
+    23/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$10_EN[7:0]$81
+    24/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$9_EN[7:0]$80
+    25/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$8_EN[7:0]$79
+    26/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$7_EN[7:0]$78
+    27/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$6_EN[7:0]$77
+    28/47: $0\rx_count[2:0]
+    29/47: $0\tx_count[2:0]
+    30/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_EN[7:0]$90
+    31/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_DATA[7:0]$89
+    32/47: $1$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_ADDR[1:0]$88
+    33/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_EN[7:0]$87
+    34/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_DATA[7:0]$86
+    35/47: $1$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_ADDR[1:0]$85
+    36/47: $1\ptr_next$func$rtl/apb_spi_master.sv:157$5.ptr[1:0]$76
+    37/47: $1\ptr_next$func$rtl/apb_spi_master.sv:157$5.$result[1:0]$75
+    38/47: $1\ptr_next$func$rtl/apb_spi_master.sv:153$4.ptr[1:0]$74
+    39/47: $1\ptr_next$func$rtl/apb_spi_master.sv:153$4.$result[1:0]$73
+    40/47: $1\ptr_next$func$rtl/apb_spi_master.sv:149$3.ptr[1:0]$72
+    41/47: $1\ptr_next$func$rtl/apb_spi_master.sv:149$3.$result[1:0]$71
+    42/47: $1\ptr_next$func$rtl/apb_spi_master.sv:145$2.ptr[1:0]$70
+    43/47: $1\ptr_next$func$rtl/apb_spi_master.sv:145$2.$result[1:0]$69
+    44/47: $0\rx_rd_ptr[1:0]
+    45/47: $0\rx_wr_ptr[1:0]
+    46/47: $0\tx_rd_ptr[1:0]
+    47/47: $0\tx_wr_ptr[1:0]
+Creating decoders for process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:120$40'.
+     1/1: $0\ctrl_reg[31:0]
+Creating decoders for process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:0$34'.
+     1/15: $2\PRDATA[31:0] [31:5]
+     2/15: $5\PRDATA[31:0]
+     3/15: $2\PRDATA[31:0] [4:0]
+     4/15: $5\PSLVERR[0:0]
+     5/15: $4\PRDATA[4:0] [3]
+     6/15: $4\PRDATA[4:0] [2]
+     7/15: $4\PRDATA[4:0] [1]
+     8/15: $4\PRDATA[4:0] [0]
+     9/15: $3\PSLVERR[0:0]
+    10/15: $4\PSLVERR[0:0]
+    11/15: $4\PRDATA[4:0] [4]
+    12/15: $3\PRDATA[31:0]
+    13/15: $2\PSLVERR[0:0]
+    14/15: $1\PSLVERR[0:0]
+    15/15: $1\PRDATA[31:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\apb_spi_master.\PRDATA' from process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:0$34'.
+No latch inferred for signal `\apb_spi_master.\PREADY' from process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:0$34'.
+No latch inferred for signal `\apb_spi_master.\PSLVERR' from process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:0$34'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\apb_spi_master.\SCLK' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$740' with positive edge clock.
+Creating register for signal `\apb_spi_master.\MOSI' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$741' with positive edge clock.
+Creating register for signal `\apb_spi_master.\CS_n' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$742' with positive edge clock.
+Creating register for signal `\apb_spi_master.\busy' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$743' with positive edge clock.
+Creating register for signal `\apb_spi_master.\tx_shift' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$744' with positive edge clock.
+Creating register for signal `\apb_spi_master.\rx_shift' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$745' with positive edge clock.
+Creating register for signal `\apb_spi_master.\sample_count' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$746' with positive edge clock.
+Creating register for signal `\apb_spi_master.\divider_count' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$747' with positive edge clock.
+Creating register for signal `\apb_spi_master.\spi_mode' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$748' with positive edge clock.
+Creating register for signal `\apb_spi_master.\leading_edge' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$749' with positive edge clock.
+Creating register for signal `\apb_spi_master.\tx_start' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$750' with positive edge clock.
+Creating register for signal `\apb_spi_master.\rx_commit' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$751' with positive edge clock.
+Creating register for signal `\apb_spi_master.\rx_commit_data' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$752' with positive edge clock.
+Creating register for signal `\apb_spi_master.$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:204$16' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$753' with positive edge clock.
+Creating register for signal `\apb_spi_master.$mem2bits$\tx_fifo$rtl/apb_spi_master.sv:206$17' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+  created $dff cell `$procdff$754' with positive edge clock.
+Creating register for signal `\apb_spi_master.\tx_wr_ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$755' with positive edge clock.
+Creating register for signal `\apb_spi_master.\tx_rd_ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$756' with positive edge clock.
+Creating register for signal `\apb_spi_master.\rx_wr_ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$757' with positive edge clock.
+Creating register for signal `\apb_spi_master.\rx_rd_ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$758' with positive edge clock.
+Creating register for signal `\apb_spi_master.\tx_count' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$759' with positive edge clock.
+Creating register for signal `\apb_spi_master.\rx_count' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$760' with positive edge clock.
+Creating register for signal `\apb_spi_master.\i' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$761' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:145$2.$result' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$762' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:145$2.ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$763' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:149$3.$result' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$764' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:149$3.ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$765' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:153$4.$result' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$766' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:153$4.ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$767' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:157$5.$result' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$768' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ptr_next$func$rtl/apb_spi_master.sv:157$5.ptr' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$769' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$6_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$770' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$7_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$771' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$8_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$772' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$9_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$773' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$10_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$774' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$11_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$775' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:139$12_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$776' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:140$13_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$777' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_ADDR' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$778' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_DATA' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$779' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$780' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_ADDR' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$781' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_DATA' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$782' with positive edge clock.
+Creating register for signal `\apb_spi_master.$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_EN' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+  created $dff cell `$procdff$783' with positive edge clock.
+Creating register for signal `\apb_spi_master.\ctrl_reg' using process `\apb_spi_master.$proc$rtl/apb_spi_master.sv:120$40'.
+  created $dff cell `$procdff$784' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 10 empty switches in `\apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+Removing empty process `apb_spi_master.$proc$rtl/apb_spi_master.sv:174$125'.
+Found and cleaned up 11 empty switches in `\apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+Removing empty process `apb_spi_master.$proc$rtl/apb_spi_master.sv:129$45'.
+Found and cleaned up 2 empty switches in `\apb_spi_master.$proc$rtl/apb_spi_master.sv:120$40'.
+Removing empty process `apb_spi_master.$proc$rtl/apb_spi_master.sv:120$40'.
+Found and cleaned up 6 empty switches in `\apb_spi_master.$proc$rtl/apb_spi_master.sv:0$34'.
+Removing empty process `apb_spi_master.$proc$rtl/apb_spi_master.sv:0$34'.
+Cleaned up 29 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module apb_spi_master.
+<suppressed ~99 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module apb_spi_master.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\apb_spi_master'.
+<suppressed ~102 debug messages>
+Removed a total of 34 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \apb_spi_master..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$312: \busy -> 1'1
+      Replacing known input bits on port B of cell $procmux$310: \busy -> 1'1
+      Replacing known input bits on port A of cell $procmux$308: \busy -> 1'1
+      Replacing known input bits on port A of cell $procmux$316: \busy -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$732.
+    dead port 2/2 on $mux $procmux$723.
+    dead port 2/2 on $mux $procmux$721.
+    dead port 2/2 on $mux $procmux$711.
+    dead port 2/2 on $mux $procmux$709.
+    dead port 2/2 on $mux $procmux$700.
+    dead port 2/2 on $mux $procmux$698.
+    dead port 2/2 on $mux $procmux$690.
+    dead port 2/2 on $mux $procmux$688.
+    dead port 2/2 on $mux $procmux$679.
+    dead port 2/2 on $mux $procmux$677.
+    dead port 2/2 on $mux $procmux$668.
+    dead port 2/2 on $mux $procmux$666.
+    dead port 2/2 on $mux $procmux$657.
+    dead port 2/2 on $mux $procmux$655.
+    dead port 2/2 on $mux $procmux$646.
+    dead port 2/2 on $mux $procmux$644.
+    dead port 2/2 on $mux $procmux$635.
+    dead port 2/2 on $mux $procmux$633.
+    dead port 2/2 on $mux $procmux$626.
+    dead port 2/2 on $mux $procmux$618.
+    dead port 2/2 on $mux $procmux$616.
+    dead port 2/2 on $mux $procmux$609.
+    dead port 1/2 on $mux $procmux$573.
+    dead port 2/2 on $mux $procmux$573.
+    dead port 1/2 on $mux $procmux$570.
+    dead port 2/2 on $mux $procmux$570.
+    dead port 1/2 on $mux $procmux$567.
+    dead port 2/2 on $mux $procmux$567.
+    dead port 1/2 on $mux $procmux$564.
+    dead port 2/2 on $mux $procmux$564.
+    dead port 1/2 on $mux $procmux$561.
+    dead port 2/2 on $mux $procmux$561.
+    dead port 1/2 on $mux $procmux$558.
+    dead port 2/2 on $mux $procmux$558.
+    dead port 1/2 on $mux $procmux$555.
+    dead port 2/2 on $mux $procmux$555.
+    dead port 1/2 on $mux $procmux$552.
+    dead port 2/2 on $mux $procmux$552.
+    dead port 2/2 on $mux $procmux$490.
+    dead port 2/2 on $mux $procmux$484.
+    dead port 2/2 on $mux $procmux$478.
+    dead port 1/2 on $mux $procmux$472.
+    dead port 2/2 on $mux $procmux$472.
+    dead port 1/2 on $mux $procmux$469.
+    dead port 2/2 on $mux $procmux$469.
+    dead port 1/2 on $mux $procmux$466.
+    dead port 2/2 on $mux $procmux$466.
+    dead port 1/2 on $mux $procmux$463.
+    dead port 2/2 on $mux $procmux$463.
+    dead port 2/2 on $mux $procmux$460.
+    dead port 2/2 on $mux $procmux$457.
+    dead port 1/2 on $mux $procmux$451.
+    dead port 2/2 on $mux $procmux$451.
+    dead port 1/2 on $mux $procmux$448.
+    dead port 2/2 on $mux $procmux$448.
+    dead port 1/2 on $mux $procmux$445.
+    dead port 2/2 on $mux $procmux$445.
+    dead port 1/2 on $mux $procmux$442.
+    dead port 2/2 on $mux $procmux$442.
+    dead port 2/2 on $mux $procmux$439.
+    dead port 2/2 on $mux $procmux$436.
+    dead port 2/2 on $mux $procmux$430.
+    dead port 2/2 on $mux $procmux$424.
+    dead port 2/2 on $mux $procmux$418.
+    dead port 1/2 on $mux $procmux$412.
+    dead port 2/2 on $mux $procmux$412.
+    dead port 1/2 on $mux $procmux$409.
+    dead port 2/2 on $mux $procmux$409.
+    dead port 1/2 on $mux $procmux$406.
+    dead port 2/2 on $mux $procmux$406.
+    dead port 1/2 on $mux $procmux$403.
+    dead port 2/2 on $mux $procmux$403.
+    dead port 2/2 on $mux $procmux$400.
+    dead port 2/2 on $mux $procmux$397.
+    dead port 1/2 on $mux $procmux$391.
+    dead port 2/2 on $mux $procmux$391.
+    dead port 1/2 on $mux $procmux$388.
+    dead port 2/2 on $mux $procmux$388.
+    dead port 1/2 on $mux $procmux$385.
+    dead port 2/2 on $mux $procmux$385.
+    dead port 1/2 on $mux $procmux$382.
+    dead port 2/2 on $mux $procmux$382.
+    dead port 2/2 on $mux $procmux$379.
+    dead port 2/2 on $mux $procmux$376.
+    dead port 1/2 on $mux $procmux$223.
+    dead port 2/2 on $mux $procmux$223.
+    dead port 1/2 on $mux $procmux$220.
+    dead port 2/2 on $mux $procmux$220.
+    dead port 1/2 on $mux $procmux$182.
+    dead port 2/2 on $mux $procmux$182.
+    dead port 1/2 on $mux $procmux$179.
+    dead port 2/2 on $mux $procmux$179.
+    dead port 1/2 on $mux $procmux$176.
+    dead port 2/2 on $mux $procmux$176.
+    dead port 1/2 on $mux $procmux$173.
+    dead port 2/2 on $mux $procmux$173.
+    dead port 1/2 on $mux $procmux$170.
+    dead port 2/2 on $mux $procmux$170.
+    dead port 1/2 on $mux $procmux$167.
+    dead port 2/2 on $mux $procmux$167.
+    dead port 1/2 on $mux $procmux$165.
+    dead port 2/2 on $mux $procmux$165.
+    dead port 1/2 on $mux $procmux$161.
+    dead port 2/2 on $mux $procmux$161.
+    dead port 1/2 on $mux $procmux$158.
+    dead port 2/2 on $mux $procmux$158.
+    dead port 1/2 on $mux $procmux$156.
+    dead port 2/2 on $mux $procmux$156.
+Removed 109 multiplexer ports.
+<suppressed ~44 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \apb_spi_master.
+    Consolidated identical input bits for $mux cell $procmux$517:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$517_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$517_Y [0]
+      New connections: $procmux$517_Y [7:1] = { $procmux$517_Y [0] $procmux$517_Y [0] $procmux$517_Y [0] $procmux$517_Y [0] $procmux$517_Y [0] $procmux$517_Y [0] $procmux$517_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$514:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$514_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$514_Y [0]
+      New connections: $procmux$514_Y [7:1] = { $procmux$514_Y [0] $procmux$514_Y [0] $procmux$514_Y [0] $procmux$514_Y [0] $procmux$514_Y [0] $procmux$514_Y [0] $procmux$514_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$511:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$511_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$511_Y [0]
+      New connections: $procmux$511_Y [7:1] = { $procmux$511_Y [0] $procmux$511_Y [0] $procmux$511_Y [0] $procmux$511_Y [0] $procmux$511_Y [0] $procmux$511_Y [0] $procmux$511_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$508:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$508_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$508_Y [0]
+      New connections: $procmux$508_Y [7:1] = { $procmux$508_Y [0] $procmux$508_Y [0] $procmux$508_Y [0] $procmux$508_Y [0] $procmux$508_Y [0] $procmux$508_Y [0] $procmux$508_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$505:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$505_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$505_Y [0]
+      New connections: $procmux$505_Y [7:1] = { $procmux$505_Y [0] $procmux$505_Y [0] $procmux$505_Y [0] $procmux$505_Y [0] $procmux$505_Y [0] $procmux$505_Y [0] $procmux$505_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$502:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$502_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$502_Y [0]
+      New connections: $procmux$502_Y [7:1] = { $procmux$502_Y [0] $procmux$502_Y [0] $procmux$502_Y [0] $procmux$502_Y [0] $procmux$502_Y [0] $procmux$502_Y [0] $procmux$502_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$499:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$499_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$499_Y [0]
+      New connections: $procmux$499_Y [7:1] = { $procmux$499_Y [0] $procmux$499_Y [0] $procmux$499_Y [0] $procmux$499_Y [0] $procmux$499_Y [0] $procmux$499_Y [0] $procmux$499_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$496:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$496_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$496_Y [0]
+      New connections: $procmux$496_Y [7:1] = { $procmux$496_Y [0] $procmux$496_Y [0] $procmux$496_Y [0] $procmux$496_Y [0] $procmux$496_Y [0] $procmux$496_Y [0] $procmux$496_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$475:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$475_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$475_Y [0]
+      New connections: $procmux$475_Y [7:1] = { $procmux$475_Y [0] $procmux$475_Y [0] $procmux$475_Y [0] $procmux$475_Y [0] $procmux$475_Y [0] $procmux$475_Y [0] $procmux$475_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$415:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$415_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$415_Y [0]
+      New connections: $procmux$415_Y [7:1] = { $procmux$415_Y [0] $procmux$415_Y [0] $procmux$415_Y [0] $procmux$415_Y [0] $procmux$415_Y [0] $procmux$415_Y [0] $procmux$415_Y [0] }
+  Optimizing cells in module \apb_spi_master.
+    Consolidated identical input bits for $mux cell $procmux$543:
+      Old ports: A=8'00000000, B=$2$memwr$\tx_fifo$rtl/apb_spi_master.sv:144$14_EN[7:0]$95, Y=$procmux$543_Y
+      New ports: A=1'0, B=$procmux$475_Y [0], Y=$procmux$543_Y [0]
+      New connections: $procmux$543_Y [7:1] = { $procmux$543_Y [0] $procmux$543_Y [0] $procmux$543_Y [0] $procmux$543_Y [0] $procmux$543_Y [0] $procmux$543_Y [0] $procmux$543_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$534:
+      Old ports: A=8'00000000, B=$2$memwr$\rx_fifo$rtl/apb_spi_master.sv:152$15_EN[7:0]$110, Y=$procmux$534_Y
+      New ports: A=1'0, B=$procmux$415_Y [0], Y=$procmux$534_Y [0]
+      New connections: $procmux$534_Y [7:1] = { $procmux$534_Y [0] $procmux$534_Y [0] $procmux$534_Y [0] $procmux$534_Y [0] $procmux$534_Y [0] $procmux$534_Y [0] $procmux$534_Y [0] }
+  Optimizing cells in module \apb_spi_master.
+Performed a total of 12 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\apb_spi_master'.
+<suppressed ~48 debug messages>
+Removed a total of 16 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$761 ($dff) from module apb_spi_master (D = 4, Q = \i).
+Adding SRST signal on $procdff$760 ($dff) from module apb_spi_master (D = $procmux$520_Y, Q = \rx_count, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$796 ($sdff) from module apb_spi_master (D = $procmux$520_Y, Q = \rx_count).
+Adding SRST signal on $procdff$740 ($dff) from module apb_spi_master (D = $procmux$367_Y, Q = \SCLK, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$800 ($sdff) from module apb_spi_master (D = $procmux$367_Y, Q = \SCLK).
+Adding SRST signal on $procdff$741 ($dff) from module apb_spi_master (D = $procmux$358_Y, Q = \MOSI, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$804 ($sdff) from module apb_spi_master (D = $procmux$358_Y, Q = \MOSI).
+Adding SRST signal on $procdff$742 ($dff) from module apb_spi_master (D = $procmux$335_Y, Q = \CS_n, rval = 1'1).
+Adding EN signal on $auto$ff.cc:266:slice$818 ($sdff) from module apb_spi_master (D = $procmux$335_Y, Q = \CS_n).
+Adding SRST signal on $procdff$743 ($dff) from module apb_spi_master (D = $procmux$318_Y, Q = \busy, rval = 1'0).
+Adding SRST signal on $procdff$744 ($dff) from module apb_spi_master (D = $procmux$301_Y, Q = \tx_shift, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:266:slice$829 ($sdff) from module apb_spi_master (D = $procmux$301_Y, Q = \tx_shift).
+Adding SRST signal on $procdff$745 ($dff) from module apb_spi_master (D = $procmux$278_Y, Q = \rx_shift, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$843 ($sdff) from module apb_spi_master (D = $procmux$278_Y, Q = \rx_shift).
+Adding SRST signal on $procdff$746 ($dff) from module apb_spi_master (D = $procmux$254_Y, Q = \sample_count, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$853 ($sdff) from module apb_spi_master (D = $add$rtl/apb_spi_master.sv:245$152_Y, Q = \sample_count).
+Adding SRST signal on $procdff$747 ($dff) from module apb_spi_master (D = $add$rtl/apb_spi_master.sv:249$153_Y, Q = \divider_count, rval = 8'00000000).
+Adding SRST signal on $procdff$748 ($dff) from module apb_spi_master (D = \ctrl_reg [2:1], Q = \spi_mode, rval = 2'00).
+Adding SRST signal on $procdff$749 ($dff) from module apb_spi_master (D = $procmux$240_Y, Q = \leading_edge, rval = 1'1).
+Adding EN signal on $auto$ff.cc:266:slice$871 ($sdff) from module apb_spi_master (D = $not$rtl/apb_spi_master.sv:234$148_Y, Q = \leading_edge).
+Adding SRST signal on $procdff$750 ($dff) from module apb_spi_master (D = $procmux$200_Y, Q = \tx_start, rval = 1'0).
+Adding SRST signal on $procdff$751 ($dff) from module apb_spi_master (D = $procmux$186_Y, Q = \rx_commit, rval = 1'0).
+Adding SRST signal on $procdff$752 ($dff) from module apb_spi_master (D = $procmux$234_Y, Q = \rx_commit_data, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$889 ($sdff) from module apb_spi_master (D = $ternary$rtl/apb_spi_master.sv:241$151_Y, Q = \rx_commit_data).
+Adding SRST signal on $procdff$784 ($dff) from module apb_spi_master (D = $procmux$599_Y, Q = \ctrl_reg, rval = 256).
+Adding EN signal on $auto$ff.cc:266:slice$895 ($sdff) from module apb_spi_master (D = $and$rtl/apb_spi_master.sv:124$44_Y, Q = \ctrl_reg).
+Adding SRST signal on $procdff$755 ($dff) from module apb_spi_master (D = $procmux$594_Y, Q = \tx_wr_ptr, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$897 ($sdff) from module apb_spi_master (D = $3\ptr_next$func$rtl/apb_spi_master.sv:145$2.$result[1:0]$97, Q = \tx_wr_ptr).
+Adding SRST signal on $procdff$756 ($dff) from module apb_spi_master (D = $procmux$588_Y, Q = \tx_rd_ptr, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$899 ($sdff) from module apb_spi_master (D = $3\ptr_next$func$rtl/apb_spi_master.sv:149$3.$result[1:0]$102, Q = \tx_rd_ptr).
+Adding SRST signal on $procdff$759 ($dff) from module apb_spi_master (D = $procmux$527_Y, Q = \tx_count, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$901 ($sdff) from module apb_spi_master (D = $procmux$527_Y, Q = \tx_count).
+Adding SRST signal on $procdff$757 ($dff) from module apb_spi_master (D = $procmux$582_Y, Q = \rx_wr_ptr, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$905 ($sdff) from module apb_spi_master (D = $3\ptr_next$func$rtl/apb_spi_master.sv:153$4.$result[1:0]$112, Q = \rx_wr_ptr).
+Adding SRST signal on $procdff$758 ($dff) from module apb_spi_master (D = $procmux$576_Y, Q = \rx_rd_ptr, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$907 ($sdff) from module apb_spi_master (D = $3\ptr_next$func$rtl/apb_spi_master.sv:157$5.$result[1:0]$117, Q = \rx_rd_ptr).
+Setting constant 1-bit at position 0 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 1 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 2 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 3 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 4 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 5 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 6 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 7 on $procdff$754 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 0 on $procdff$769 ($dff) from module apb_spi_master.
+Setting constant 1-bit at position 1 on $procdff$769 ($dff) from module apb_spi_master.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 1-bit at position 2 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$795 ($dffe) from module apb_spi_master.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \apb_spi_master..
+Removed 52 unused cells and 470 unused wires.
+<suppressed ~53 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module apb_spi_master.
+<suppressed ~5 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \apb_spi_master..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \apb_spi_master.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\apb_spi_master'.
+<suppressed ~48 debug messages>
+Removed a total of 16 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$896 ($sdffe) from module apb_spi_master.
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \apb_spi_master..
+Removed 0 unused cells and 16 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module apb_spi_master.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \apb_spi_master..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \apb_spi_master.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\apb_spi_master'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \apb_spi_master..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module apb_spi_master.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module apb_spi_master...
+Found and reported 0 problems.
+
+6. Printing statistics.
+
+=== apb_spi_master ===
+
+   Number of wires:                176
+   Number of wire bits:            735
+   Number of public wires:          48
+   Number of public wire bits:     253
+   Number of ports:                 14
+   Number of port bits:            107
+   Number of memories:               2
+   Number of memory bits:           64
+   Number of processes:              0
+   Number of cells:                174
+     $add                            8
+     $eq                            14
+     $ge                             1
+     $logic_and                     11
+     $logic_not                      9
+     $logic_or                       2
+     $memrd                          2
+     $memwr_v2                      10
+     $mux                           63
+     $ne                             7
+     $not                            6
+     $pmux                           5
+     $reduce_and                     6
+     $reduce_bool                    4
+     $reduce_or                      3
+     $sdff                           5
+     $sdffe                         15
+     $sub                            3
+
+End of script. Logfile hash: dcd974e265, CPU: user 0.07s system 0.03s, MEM: 15.89 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 22% 5x opt_expr (0 sec), 21% 2x read_verilog (0 sec), ...

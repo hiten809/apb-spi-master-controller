@@ -1,0 +1,56 @@
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build and compiled outputs
+build/
+dist/
+*.o
+*.a
+*.so
+*.out
+*.vvp
+*.vcd
+*.fst
+*.ghw
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+
+# Projects maintained in their own GitHub repositories
+/01-mosfet-simulator/
+/02-cmos-inverter/
+
+# Historical RTL and testbench checkpoints
+03-apb-spi-master/rtl/*.sv.*
+03-apb-spi-master/tb/*.sv.*
+03-apb-spi-master/rtl/*.backup
+03-apb-spi-master/tb/*.backup
+
+# Python bytecode
+**/__pycache__/
+
+# Experimental RTL and historical testbench checkpoint
+03-apb-spi-master/rtl/apb_spi_master.spi_engine_attempt.sv
+03-apb-spi-master/tb/tb_spi_transfer.mode0_checkpoint
+
+# Keep only consolidated APB-SPI logs and reports
+03-apb-spi-master/results/*.log
+!03-apb-spi-master/results/full_regression.log
+!03-apb-spi-master/results/yosys_synthesis.log
+
+# Root-level plots from the separately maintained MOSFET project
+/results/

@@ -1,0 +1,142 @@
+APB-SPI MASTER — VERIFICATION REPORT
+====================================
+Date: 30 October 2026
+
+1. VERIFICATION ENVIRONMENT
+---------------------------
+RTL: SystemVerilog
+Simulator: Icarus Verilog 12.0
+Lint: Verilator 5.032
+Synthesis/check: Yosys 0.52
+Waveform viewer: GTKWave 3.3.126
+
+2. VERILATOR LINT
+-----------------
+Command:
+  verilator --lint-only --Wall --top-module apb_spi_master \
+    rtl/apb_spi_master.sv
+
+Result: PASS
+No lint warnings were reported in the recorded full regression.
+
+3. SPI SINGLE-TRANSFER TESTS
+----------------------------
+Self-checking behavioral SPI slave tests were run for all four SPI modes.
+
+  PASS: SPI mode 0 transfer
+  PASS: SPI mode 1 transfer
+  PASS: SPI mode 2 transfer
+  PASS: SPI mode 3 transfer
+
+The tests check transmitted and received data, SPI sampling,
+the expected eight-bit transfer length, and timeout conditions.
+
+4. SPI MULTI-TRANSFER TESTS
+--------------------------
+Four sequential transfers were tested in each SPI mode.
+
+  PASS: SPI mode 0 multi-transfer test
+  PASS: SPI mode 1 multi-transfer test
+  PASS: SPI mode 2 multi-transfer test
+  PASS: SPI mode 3 multi-transfer test
+
+The tests check transaction count, transmitted byte values,
+received byte values, and RX FIFO data ordering.
+
+5. APB REGISTER AND ERROR TESTS
+-------------------------------
+The APB test checks:
+  - CTRL reset value and read/write behavior
+  - STATUS reset and FIFO status values
+  - Four-entry TX FIFO filling
+  - TX FIFO full indication
+  - Rejection of a fifth TX FIFO write
+  - Write to read-only STATUS register
+  - Read from write-only TXDATA register
+  - RXDATA read while RX FIFO is empty
+  - Access to an unmapped register address
+
+Functional coverage counters:
+  Successful writes: 5/5
+  Successful reads:  4/4
+  Expected errors:   5/5
+
+  PASS: APB registers, TX FIFO overflow, and APB error checks
+
+6. RX FIFO FULL / PAUSE / RECOVERY TESTS
+----------------------------------------
+The RX FIFO full test was run independently in SPI modes 0, 1, 2,
+and 3.
+
+Each mode verifies:
+  - RX FIFO reaches full state after four received bytes
+  - SPI engine becomes idle while RX FIFO is full
+  - A queued fifth transfer does not start while RX FIFO is full
+  - Reading one RX byte permits the fifth transfer to resume
+  - RX FIFO returns to full state after the fifth response
+  - All five received bytes are read in the expected order
+  - RX FIFO reports empty after draining
+
+Coverage per SPI mode:
+  RX full events:       2/2
+  Pause checks:         1/1
+  Resume events:        1/1
+  RX bytes verified:    5/5
+
+  PASS: RX FIFO full/pause/recovery, SPI modes 0, 1, 2, and 3
+
+7. SELF-CHECKING MECHANISM
+--------------------------
+The testbenches use procedural SystemVerilog checks, including
+$fatal calls, data comparisons, status checks, transaction counts,
+coverage-counter targets, and global timeout checks.
+
+No SystemVerilog Assertion (SVA) properties or formal verification
+results are claimed.
+
+8. YOSYS SYNTHESIS CHECK
+------------------------
+Command:
+  yosys -p "read_verilog -sv rtl/apb_spi_master.sv; hierarchy -top apb_spi_master; proc; opt; check; stat"
+
+Result:
+  Found and reported 0 problems.
+  Number of cells: 174
+
+This is a generic synthesis/check result. It is not a physical
+area, timing, power, or place-and-route measurement.
+
+9. KNOWN VERIFICATION LIMITATIONS
+---------------------------------
+The following scenarios are not established by the current directed
+regression and should not be considered verified:
+
+  - Reset assertion during an active SPI transfer
+  - Explicit simultaneous TX FIFO push and pop boundary testing
+  - Explicit simultaneous RX FIFO commit and pop boundary testing
+  - Formal verification or SVA property checking
+  - Randomized or constrained-random verification
+  - Static timing analysis and physical implementation
+  - FPGA or ASIC area, timing, and power characterization
+
+The RTL contains count-update logic for simultaneous FIFO operations,
+but the current directed tests do not establish coverage of those
+simultaneous boundary cases.
+
+10. OVERALL REGRESSION RESULT
+-----------------------------
+The full regression completed with:
+  - Verilator lint
+  - Four SPI single-transfer mode tests
+  - Four SPI multi-transfer mode tests
+  - APB register and error regression
+  - Four RX FIFO full/pause/recovery mode tests
+  - Yosys synthesis checks
+
+  Found and reported 0 problems.
+  ALL REGRESSION CHECKS COMPLETED.
+
+Overall result: PASS
+
+This report records the tests actually run and their observed
+results. It does not claim formal verification or untested features.
