@@ -29,28 +29,19 @@ Thumbs.db
 *.swo
 *~
 
-
-# Projects maintained in their own GitHub repositories
+# Projects maintained in separate GitHub repositories
 /01-mosfet-simulator/
 /02-cmos-inverter/
 
-# Historical RTL and testbench checkpoints
-03-apb-spi-master/rtl/*.sv.*
-03-apb-spi-master/tb/*.sv.*
-03-apb-spi-master/rtl/*.backup
-03-apb-spi-master/tb/*.backup
+# APB-SPI historical RTL and testbench checkpoints
+/rtl/*.sv.*
+/rtl/*.backup
+/rtl/apb_spi_master.spi_engine_attempt.sv
+/tb/*.sv.*
+/tb/*.backup
+/tb/*.mode0_checkpoint
 
-# Python bytecode
-**/__pycache__/
-
-# Experimental RTL and historical testbench checkpoint
-03-apb-spi-master/rtl/apb_spi_master.spi_engine_attempt.sv
-03-apb-spi-master/tb/tb_spi_transfer.mode0_checkpoint
-
-# Keep only consolidated APB-SPI logs and reports
-03-apb-spi-master/results/*.log
-!03-apb-spi-master/results/full_regression.log
-!03-apb-spi-master/results/yosys_synthesis.log
-
-# Root-level plots from the separately maintained MOSFET project
-/results/
+# Ignore individual APB-SPI run logs, retain consolidated reports
+/apb-spi-results/*.log
+!/apb-spi-results/full_regression.log
+!/apb-spi-results/yosys_synthesis.log

@@ -3,6 +3,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
+mkdir -p results apb-spi-results
+
 echo "========== VERILATOR LINT =========="
 verilator --lint-only --Wall --top-module apb_spi_master \
   rtl/apb_spi_master.sv
@@ -45,6 +47,6 @@ done
 
 echo "========== YOSYS CHECK AND STATISTICS =========="
 yosys -p "read_verilog -sv rtl/apb_spi_master.sv; hierarchy -top apb_spi_master; proc; opt; check; stat" \
-  | tee results/yosys_synthesis.log
+  | tee apb-spi-results/yosys_synthesis.log
 
 echo "========== ALL REGRESSION CHECKS COMPLETED =========="
