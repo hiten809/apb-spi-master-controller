@@ -1,0 +1,588 @@
+$date
+	Fri Oct 30 09:45:04 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_apb_spi_master $end
+$var wire 1 ! SCLK $end
+$var wire 1 " PSLVERR $end
+$var wire 1 # PREADY $end
+$var wire 32 $ PRDATA [31:0] $end
+$var wire 1 % MOSI $end
+$var wire 1 & CS_n $end
+$var reg 1 ' MISO $end
+$var reg 32 ( PADDR [31:0] $end
+$var reg 1 ) PCLK $end
+$var reg 1 * PENABLE $end
+$var reg 1 + PRESETn $end
+$var reg 1 , PSEL $end
+$var reg 32 - PWDATA [31:0] $end
+$var reg 1 . PWRITE $end
+$var integer 32 / expected_errors [31:0] $end
+$var integer 32 0 successful_reads [31:0] $end
+$var integer 32 1 successful_writes [31:0] $end
+$scope module dut $end
+$var wire 1 ' MISO $end
+$var wire 32 2 PADDR [31:0] $end
+$var wire 1 ) PCLK $end
+$var wire 1 * PENABLE $end
+$var wire 1 + PRESETn $end
+$var wire 1 , PSEL $end
+$var wire 32 3 PWDATA [31:0] $end
+$var wire 1 . PWRITE $end
+$var wire 1 4 apb_access $end
+$var wire 1 5 apb_read $end
+$var wire 1 6 apb_write $end
+$var wire 1 7 rx_pop $end
+$var wire 1 8 tx_push $end
+$var wire 1 9 tx_full $end
+$var wire 1 : tx_empty $end
+$var wire 1 ; rx_full $end
+$var wire 1 < rx_empty $end
+$var wire 1 = cpol $end
+$var wire 1 > cpha $end
+$var wire 8 ? clk_div [7:0] $end
+$var parameter 32 @ ADDR_CTRL $end
+$var parameter 32 A ADDR_RXDATA $end
+$var parameter 32 B ADDR_STATUS $end
+$var parameter 32 C ADDR_TXDATA $end
+$var parameter 32 D COUNT_WIDTH $end
+$var parameter 32 E FIFO_DEPTH $end
+$var parameter 32 F PTR_WIDTH $end
+$var reg 1 & CS_n $end
+$var reg 1 % MOSI $end
+$var reg 32 G PRDATA [31:0] $end
+$var reg 1 # PREADY $end
+$var reg 1 " PSLVERR $end
+$var reg 1 ! SCLK $end
+$var reg 1 H busy $end
+$var reg 32 I ctrl_reg [31:0] $end
+$var reg 8 J divider_count [7:0] $end
+$var reg 1 K leading_edge $end
+$var reg 1 L rx_commit $end
+$var reg 8 M rx_commit_data [7:0] $end
+$var reg 3 N rx_count [2:0] $end
+$var reg 2 O rx_rd_ptr [1:0] $end
+$var reg 8 P rx_shift [7:0] $end
+$var reg 2 Q rx_wr_ptr [1:0] $end
+$var reg 4 R sample_count [3:0] $end
+$var reg 2 S spi_mode [1:0] $end
+$var reg 3 T tx_count [2:0] $end
+$var reg 2 U tx_rd_ptr [1:0] $end
+$var reg 7 V tx_shift [6:0] $end
+$var reg 1 W tx_start $end
+$var reg 2 X tx_wr_ptr [1:0] $end
+$var integer 32 Y i [31:0] $end
+$scope function ptr_next $end
+$upscope $end
+$upscope $end
+$scope task apb_read_check $end
+$upscope $end
+$scope task apb_read_expect_error $end
+$upscope $end
+$scope task apb_write $end
+$upscope $end
+$scope task apb_write_expect_error $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 F
+b100 E
+b11 D
+b1000 C
+b100 B
+b1100 A
+b0 @
+$end
+#0
+$dumpvars
+bx Y
+bx X
+xW
+bx V
+bx U
+bx T
+bx S
+bx R
+bx Q
+bx P
+bx O
+bx N
+bx M
+xL
+xK
+bx J
+bx I
+xH
+b0 G
+bx ?
+x>
+x=
+x<
+x;
+x:
+x9
+08
+07
+06
+05
+04
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+0.
+b0 -
+0,
+0+
+0*
+0)
+b0 (
+0'
+x&
+x%
+b0 $
+1#
+0"
+x!
+$end
+#5000
+b1 ?
+0=
+0>
+b100000000 I
+1<
+0;
+b0 N
+1:
+09
+b0 T
+b0 O
+b0 Q
+b0 U
+b0 X
+b0 M
+0L
+0W
+1K
+b0 S
+b0 J
+b0 R
+b0 P
+b0 V
+1&
+0%
+0!
+0H
+b100 Y
+1)
+#10000
+0)
+#15000
+b100 Y
+1)
+#20000
+1+
+0)
+#25000
+1)
+#30000
+1,
+0)
+#35000
+1)
+#40000
+15
+b100000000 $
+b100000000 G
+14
+1*
+0)
+#41000
+b1 0
+#45000
+1)
+#50000
+05
+b0 $
+b0 G
+04
+0*
+0,
+0)
+#55000
+1)
+#60000
+b10100000000 -
+b10100000000 3
+1.
+1,
+0)
+#65000
+1)
+#70000
+16
+14
+1*
+0)
+#75000
+b101 ?
+b10100000000 I
+b1 1
+1)
+#80000
+06
+04
+0.
+0*
+0,
+0)
+#85000
+1)
+#90000
+1,
+0)
+#95000
+1)
+#100000
+15
+b10100000000 $
+b10100000000 G
+14
+1*
+0)
+#101000
+b10 0
+#105000
+1)
+#110000
+05
+b0 $
+b0 G
+04
+0*
+0,
+0)
+#115000
+1)
+#120000
+b100 (
+b100 2
+1,
+0)
+#125000
+1)
+#130000
+15
+b10100 $
+b10100 G
+14
+1*
+0)
+#131000
+b11 0
+#135000
+1)
+#140000
+05
+b0 $
+b0 G
+04
+0*
+0,
+0)
+#145000
+1)
+#150000
+b10001 -
+b10001 3
+b1000 (
+b1000 2
+1.
+1,
+0)
+#155000
+1)
+#160000
+18
+16
+14
+1*
+0)
+#165000
+0:
+b1 T
+b1 X
+b10 1
+1)
+#170000
+08
+06
+04
+0.
+0*
+0,
+0)
+#175000
+1)
+#180000
+b100010 -
+b100010 3
+1.
+1,
+0)
+#185000
+1)
+#190000
+18
+16
+14
+1*
+0)
+#195000
+b10 T
+b10 X
+b11 1
+1)
+#200000
+08
+06
+04
+0.
+0*
+0,
+0)
+#205000
+1)
+#210000
+b110011 -
+b110011 3
+1.
+1,
+0)
+#215000
+1)
+#220000
+18
+16
+14
+1*
+0)
+#225000
+b11 T
+b11 X
+b100 1
+1)
+#230000
+08
+06
+04
+0.
+0*
+0,
+0)
+#235000
+1)
+#240000
+b1000100 -
+b1000100 3
+1.
+1,
+0)
+#245000
+1)
+#250000
+18
+16
+14
+1*
+0)
+#255000
+08
+1"
+19
+b100 T
+b0 X
+b101 1
+1)
+#260000
+06
+0"
+04
+0.
+0*
+0,
+0)
+#265000
+1)
+#270000
+b100 (
+b100 2
+1,
+0)
+#275000
+1)
+#280000
+15
+b10010 $
+b10010 G
+14
+1*
+0)
+#281000
+b100 0
+#285000
+1)
+#290000
+05
+b0 $
+b0 G
+04
+0*
+0,
+0)
+#295000
+1)
+#300000
+b1010101 -
+b1010101 3
+b1000 (
+b1000 2
+1.
+1,
+0)
+#305000
+1)
+#310000
+16
+1"
+14
+1*
+0)
+#311000
+b1 /
+#315000
+1)
+#320000
+06
+0"
+04
+0.
+0*
+0,
+0)
+#325000
+1)
+#330000
+b0 -
+b0 3
+b100 (
+b100 2
+1.
+1,
+0)
+#335000
+1)
+#340000
+16
+1"
+14
+1*
+0)
+#341000
+b10 /
+#345000
+1)
+#350000
+06
+0"
+04
+0.
+0*
+0,
+0)
+#355000
+1)
+#360000
+b1000 (
+b1000 2
+1,
+0)
+#365000
+1)
+#370000
+15
+1"
+14
+1*
+0)
+#371000
+b11 /
+#375000
+1)
+#380000
+05
+0"
+04
+0*
+0,
+0)
+#385000
+1)
+#390000
+b1100 (
+b1100 2
+1,
+0)
+#395000
+1)
+#400000
+15
+1"
+14
+1*
+0)
+#401000
+b100 /
+#405000
+1)
+#410000
+05
+0"
+04
+0*
+0,
+0)
+#415000
+1)
+#420000
+b10000 (
+b10000 2
+1,
+0)
+#425000
+1)
+#430000
+15
+1"
+14
+1*
+0)
+#431000
+b101 /
+#435000
+1)
+#440000
+05
+0"
+04
+0*
+0,
+0)

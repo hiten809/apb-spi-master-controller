@@ -178,7 +178,7 @@ module tb_spi_multi_transfer #(
         rx_patterns[2] = 8'h55;
         rx_patterns[3] = 8'h0F;
 
-        $dumpfile("results/spi_multi_mode.vcd");
+        $dumpfile($sformatf("apb-spi-results/waveforms/spi_multi_mode%0d.vcd", SPI_MODE));
         $dumpvars(0, tb_spi_multi_transfer);
 
         repeat (3) @(negedge PCLK);

@@ -17,6 +17,7 @@ dist/
 *.out
 *.vvp
 *.vcd
+!/apb-spi-results/waveforms/*.vcd
 *.fst
 *.ghw
 

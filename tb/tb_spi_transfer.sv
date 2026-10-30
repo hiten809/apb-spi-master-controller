@@ -157,7 +157,7 @@ module tb_spi_transfer #(
     integer cycles;
 
     initial begin
-        $dumpfile("results/spi_mode.vcd");
+        $dumpfile($sformatf("apb-spi-results/waveforms/spi_mode%0d.vcd", SPI_MODE));
         $dumpvars(0, tb_spi_transfer);
 
         repeat (3) @(negedge PCLK);

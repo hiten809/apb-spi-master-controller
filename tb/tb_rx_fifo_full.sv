@@ -129,7 +129,7 @@ module tb_rx_fifo_full #(
         rx_patterns[3] = 8'hD4;
         rx_patterns[4] = 8'hE5;
 
-        $dumpfile("results/rx_fifo_full.vcd");
+        $dumpfile($sformatf("apb-spi-results/waveforms/rx_fifo_full_mode%0d.vcd", SPI_MODE));
         $dumpvars(0, tb_rx_fifo_full);
 
         repeat (3) @(negedge PCLK);

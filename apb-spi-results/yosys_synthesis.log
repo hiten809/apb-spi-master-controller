@@ -642,6 +642,6 @@ Found and reported 0 problems.
      $sdffe                         15
      $sub                            3
 
-End of script. Logfile hash: dcd974e265, CPU: user 0.07s system 0.00s, MEM: 15.77 MB peak
+End of script. Logfile hash: dcd974e265, CPU: user 0.07s system 0.01s, MEM: 15.71 MB peak
 Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
-Time spent: 24% 2x read_verilog (0 sec), 19% 5x opt_expr (0 sec), ...
+Time spent: 22% 5x opt_expr (0 sec), 20% 2x read_verilog (0 sec), ...

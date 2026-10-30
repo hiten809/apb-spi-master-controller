@@ -139,7 +139,7 @@ module tb_apb_spi_master;
     endtask
 
     initial begin
-        $dumpfile("results/apb_registers.vcd");
+        $dumpfile("apb-spi-results/waveforms/apb_registers.vcd");
         $dumpvars(0, tb_apb_spi_master);
 
         repeat (2) @(negedge PCLK);
